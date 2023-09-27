@@ -1,0 +1,196 @@
+install app=>
+
+	snap changes
+	sudo snap abort xx
+
+
+upload sql database file => 
+
+	mysql -u username -p database_name < file.sql
+
+	"utf8mb4_0900_ai_ci" and replace with "utf8mb4_general_ci"  [mysql database import error].
+
+<-----------------------------------github-------------------------->
+github key=>
+
+root
+
+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
+--------------------------------------------
+
+git clone -b prod https://github.com/xeamventurespvtltd/erp.git
+
+git clone using branch=> [ git clone -b <branch> <remote_repo> ]
+
+import database=> [ mysql -u rahul -p xeamventure_erp8 < /home/rahul/Desktop/erp8/xeamvent_onboardingv2\(1\).sql  ]
+
+create branches=>
+
+git branch branch_name
+
+git checkout bramch_name
+
+git add .
+
+git commit -m "your commit"
+
+git merge branch_name
+
+<--------------------------------------commands----------------------------->
+
+-> direct file rename and save [sudo chmod -R 777 folder_name]
+
+1-> create folder [ sudo mkdir file_name ].
+
+2-> delete folder [ sudo rm -rf file_name ].
+
+3-> rename folder [ sudo mv file_name new_name]
+
+	
+
+<------------------------------------------laravel commands----------------------->
+
+install => composer create-project --prefer-dist laravel/laravel:^7.0 blog
+
+	sudo chmod -R 775 storage
+	sudo chmod -R ugo+rw storage
+
+
+cache clear=>
+
+		php artisan cache:clear
+		php artisan route:cache
+		php artisan view:clear
+		php artisan config:cache
+		php artisan route:clear
+		php artisan config:clear
+
+auth => 
+
+	composer require laravel/ui
+	php artisan ui vue --auth
+	php artisan migrate
+
+
+create migration table=>
+
+	php artisan make:migration create_user_plans_table
+
+create model with migration tables=>
+
+	php artisan make:model otp -m
+
+
+=> form validation rule =>
+	
+	php artisan make:request DocumentRequest
+
+=> create services=>
+
+	php artisan make:provider IncentiveServices
+
+=> seeder =>
+	
+	php artisan make:seeder UserRoleSeeder
+
+	php artisan db:seed
+ 
+	php artisan db:seed --class=UserRoleSeeder
+
+email=>
+
+	php artisan make:mail ForgetPassword
+
+Exception=>
+
+php artisan make:exception PDPException
+
+<======================Genarate Commands ==================>
+php artisan make:command CrudGenerate
+
+php artisan make:crud Testing
+
+//fresh migrate
+php artisan migrate:refresh --seed
+
+<-----------------------------LARAVEL MODULS--------------------------------->
+
+create modules=>
+
+	php artisan module:make Customer
+
+create controller=>
+
+	php artisan make:controller Jobseeker/dashboard
+
+	php artisan module:make-controller AppraisalProgress Appraisal
+
+create model with migration=>
+
+	php artisan module:make-model AppraisalFinancialYear -m Appraisal
+
+	php artisan module:make-model AppraisalCompentenciesBand -m Appraisal
+
+	php artisan module:make-migration add_extra_column_to_appraisal_trakers Appraisal
+
+create seeder=>
+
+	php artisan module:make-seed AppraisalCompentenciesBand Appraisal
+
+	php artisan module:seed Appraisal --class="AppraisalRecordCompentenciesTableSeeder"
+
+create Request=>
+
+	php artisan module:make-request AppraisalTemplateDetail Appraisal
+
+
+create policies=>
+
+	php artisan module:make-Policies AppraisalAccessPolicy Appraisal
+
+
+
+migration=>>
+
+	php artisan module:migrate Appraisal
+	
+
+
+SELECT * FROM `tsrlm_application_form` WHERE aadhar_number = '552110942390' AND category = 'cat-1' AND admit_card_status = '1'
+
+SELECT * FROM `tsrlm_application_form` WHERE roll_number != "" and category = 'cat-1' GROUP By aadhar_number
+
+Work Update 28-Sep-2022
+------------------------   
+1) worked on kaamindia integrated new design Authentication(complete).
+2) worked on UNDP GCF Create form (complete).
+3) worked on UNDP GCF fatech all record in excel sheet(complete).
+
+Thanks!
+
+SELECT * FROM `tsrlm_application_form` WHERE `roll_number` = '10778' GROUP BY roll_number
+
+====================================================laravel content layout==================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>/title>
+    @include('layouts.header')
+
+    @stack('style-scripts')
+    @yield('style')
+</head>
+<body>
+@include('layouts.navbar')
+
+@yield('content')
+
+@include('layouts.footer')
+@stack('js-scripts')
+
+@yield('script')
+</body>
+</html>
+
